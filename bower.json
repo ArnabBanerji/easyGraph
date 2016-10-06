@@ -1,0 +1,20 @@
+{
+  "name": "easy-graph",
+  "description": "A plotting tool to make function graphs easy",
+  "main": "index.js",
+  "authors": [
+    "Arnab Banerji"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ArnabBanerji/easyGraph",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jsxgraph": "^0.99.5"
+  }
+}
