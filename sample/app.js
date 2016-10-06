@@ -41,13 +41,34 @@ Board.prototype.getGraphXY = function (point) {
 };
 
 Board.prototype.getPoints = function (fnY) {
+    this.goodCounts = 0;
+    this.missCounts = 0;
     var ranges = this.ranges,
-        points = [];
+        i,
+        point,
+        points = [],
+        path = [];
 
-    for (var i = ranges.x.min; i <= ranges.x.max; i += 0.05) {
-        points.push(getPointCircle(this.getGraphXY(new Point(i, fnY(i)))));
+    for (i = ranges.x.min; i <= ranges.x.max; i += 0.01) {
+        point = this.getGraphXY(new Point(i, fnY(i)));
+
+        if (point.x > 0 && point.x < 500 && point.y > 0 && point.y < 500) {
+            this.goodCounts++;
+            points.push(point);
+        } else {
+            this.missCounts++;
+        }
     }
-    return points;
+
+    console.log('missCounts = ' + this.missCounts);
+    console.log('goodCounts = ' + this.goodCounts);
+
+    for (i = 0; i < points.length; i++) {
+        point = points[i];
+        path.push(getPointCircle(point))
+    }
+
+    return path;
 };
 
 var boardSize =
