@@ -19,4 +19,17 @@ describe('get spec', function () {
         expect(retVal.x).toEqual(125);
         expect(retVal.y).toEqual(375);
     });
+
+    it('should test when 5, -5', function () {
+        var pt = new Point(5, -5);
+        var retVal = board.getGraphXY(pt);
+        expect(retVal.x).toEqual(375);
+        expect(retVal.y).toEqual(375);
+    });
+    it('should test when -5, 5', function () {
+        var pt = new Point(-5, 5);
+        var retVal = board.getGraphXY(pt);
+        expect(retVal.x).toEqual(125);
+        expect(retVal.y).toEqual(125);
+    });
 });

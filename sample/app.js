@@ -44,7 +44,7 @@ Board.prototype.getPoints = function (fnY) {
     var ranges = this.ranges,
         points = [];
 
-    for (var i = ranges.x.min; i <= ranges.x.max; i += 0.005) {
+    for (var i = ranges.x.min; i <= ranges.x.max; i += 0.05) {
         points.push(getPointCircle(this.getGraphXY(new Point(i, fnY(i)))));
     }
     return points;
@@ -70,7 +70,7 @@ var range =
 
 
 var yFn = function (x) {
-    return 2 * (x + 2) * (x + 1) * x * (x - 1) * (x - 2);
+    return (x + 2) * (x + 1) * x * (x - 1) * (x - 2);
 };
 
 var board = new Board(boardSize, range);
