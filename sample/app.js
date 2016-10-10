@@ -1,4 +1,4 @@
-var getPointCircle = function (point) {
+var getCircle = function (point) {
     var vX = point.x;
     var vY = point.y;
     var orX = point.original.x;
@@ -52,7 +52,8 @@ Board.prototype.getPoints = function (fnY) {
     for (i = ranges.x.min; i <= ranges.x.max; i += 0.01) {
         point = this.getGraphXY(new Point(i, fnY(i)));
 
-        if (point.x > 0 && point.x < 500 && point.y > 0 && point.y < 500) {
+        //Ignore points unnecessary
+        if (point.x > 0 && point.x < this.boardSpecs.width && point.y > 0 && point.y < this.boardSpecs.height) {
             this.goodCounts++;
             points.push(point);
         } else {
@@ -62,14 +63,23 @@ Board.prototype.getPoints = function (fnY) {
 
     console.log('missCounts = ' + this.missCounts);
     console.log('goodCounts = ' + this.goodCounts);
+    return points;
+};
+
+
+Board.prototype.getCircles = function (points) {
+    var i,
+        circles = [],
+        point;
 
     for (i = 0; i < points.length; i++) {
         point = points[i];
-        path.push(getPointCircle(point))
+        circles.push(getCircle(point))
     }
 
-    return path;
+    return circles;
 };
+
 
 var boardSize =
 {
@@ -91,12 +101,14 @@ var range =
 
 
 var yFn = function (x) {
+    var eqVal = eval(document.getElementById('equation').value);
+
     return (x + 2) * (x + 1) * x * (x - 1) * (x - 2);
 };
 
 var board = new Board(boardSize, range);
 
-var pts = board.getPoints(yFn);
+var pts = board.getCircles(board.getPoints(yFn));
 
 var el = document.getElementById('graph');
 el.innerHTML = pts;
