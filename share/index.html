@@ -31,19 +31,25 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<div class="container">
+    <div class="row">
+        <button id="fb-share-2" class="btn btn-lg">
+            Share Over FB!
+        </button>
+    </div>
+</div>
 <script>
-    var s = 'https://www.facebook.com/sharer/sharer.php?u=https://arnabbanerji.github.io/easyGraph/share/&amp;src=sdkpreparse';
-
+    var btnShare = document.getElementById('fb-share-2');
+    btnShare.onclick = function () {
+        FB.ui({
+            method: 'share',
+            mobile_iframe: true,
+            href: 'https://arnabbanerji.github.io/easyGraph/share/',
+            quote: "Hello"
+        }, function (response) {
+        });
+    }
 </script>
-
-<div class="fb-share-button"
-     data-href="https://arnabbanerji.github.io/easyGraph/share/"
-     data-layout="button_count"
-     data-size="small"
-     data-mobile-iframe="false"><a target="_blank"
-                                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Farnabbanerji.github.io%2FeasyGraph%2Fshare%2F&amp;src=sdkpreparse"
-                                   class="fb-xfbml-parse-ignore">Share</a></div>
-
 <div class="container">
     <h1>Link Ref Testing</h1>
     <div><a href="#sec1">Section 1</a></div>
