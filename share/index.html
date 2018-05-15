@@ -20,16 +20,26 @@
     <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=602769933454914&autoLogAppEvents=1"></script>
 </head>
 <body>
+<header>
+    <div class="container">
+        <div class="row">
+            <h1>Testing Facebook and Twitter Sharing Options!</h1>
+        </div>
+    </div>
+</header>
 <div class="container">
     <div class="row">
-        <button id="fb-share-2" class="btn btn-outline-primary btn-lg">
-            Share Over Facebook!
-        </button>
-    </div>
-    <div class="row">
-        <a href="https://twitter.com/intent/tweet?text=A sample quote that can be attached to the URL!&url=https://arnabbanerji.github.io/easyGraph/share/" id="tweet" class="btn btn-outline-primary btn-lg">
-            Share Over Twitter!
-        </a>
+        <div class="flex-column">
+            <a class="btn btn-lg btn-outline-info mr-md-3"
+               href="javascript:void(0)" id="fb-share-2">
+                Share Over Facebook!
+            </a>
+            <a class="btn btn-lg btn-outline-info mr-md-3"
+               id="tweet"
+               href="https://twitter.com/intent/tweet?text=A sample quote that can be attached to the URL!&url=https://arnabbanerji.github.io/easyGraph/share/">
+                Share Over Twitter!
+            </a>
+        </div>
     </div>
 </div>
 <script>
