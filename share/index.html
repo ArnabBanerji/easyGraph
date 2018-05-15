@@ -17,40 +17,19 @@
     <meta property="og:title" content="Sample Title 01"/>
     <meta property="og:description" content="Sample Description 01"/>
     <meta property="og:image" content="https://arnabbanerji.github.io/easyGraph/share/test_a.jpg"/>
-    <meta property="og:image" content="https://arnabbanerji.github.io/easyGraph/share/test_b.jpg"/>
+    <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=602769933454914&autoLogAppEvents=1"></script>
 </head>
 <body>
-
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=602769933454914&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
-            <div class="fb-share-button"
-                 data-href="https://arnabbanerji.github.io/easyGraph/share/"
-                 data-layout="button_count"
-                 data-size="small"
-                 data-mobile-iframe="false"><a target="_blank"
-                                               href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Farnabbanerji.github.io%2FeasyGraph%2Fshare%2F&amp;src=sdkpreparse"
-                                               class="fb-xfbml-parse-ignore">Share</a></div>
-
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <button id="fb-share-2" class="btn btn-lg">
-            Share Over FB!
+        <button id="fb-share-2" class="btn btn-outline-primary btn-lg">
+            Share Over Facebook!
         </button>
+    </div>
+    <div class="row">
+        <a href="https://twitter.com/intent/tweet?text=Quote Text!&url=https://arnabbanerji.github.io/easyGraph/share/" id="tweet" class="btn btn-outline-primary btn-lg">
+            Share Over Twitter!
+        </a>
     </div>
 </div>
 <script>
@@ -60,7 +39,7 @@
             method: 'share',
             mobile_iframe: true,
             href: 'https://arnabbanerji.github.io/easyGraph/share/',
-            quote: "Hello"
+            quote: "A sample quote that can be attached to the URL!"
         }, function (response) {
         });
     }
